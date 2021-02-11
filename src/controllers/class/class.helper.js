@@ -2,7 +2,7 @@ import ClassModel from "../../models/Class.model.js";
 
 
 /**
- * Create New Note
+ * Create New Class
  * @param students Studets[]
  * @param classname classname
  * @param modules module[]
