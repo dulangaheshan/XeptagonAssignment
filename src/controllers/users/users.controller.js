@@ -2,7 +2,7 @@
  * @author [D5haN]
  * @email [dulangah2@gmail.com]
  * @create date 2021-02-10 15:15:08
- * @modify date 2021-02-12 00:47:53
+ * @modify date 2021-02-12 13:55:23
  * @desc [User Controller]
  */
 import {
@@ -73,7 +73,8 @@ export const InstructorCreateController = async (req, res) => {
   console.log("Function create Instructor Execution Started");
   try {
     const { username } = req.body;
-    const user = await addUser(username, GenrateRandomPassword(username), "instructor");
+    const role =  "instructor"
+    const user = await addUser(username, GenrateRandomPassword(username),role);
 
     res.status(200).json(PayloadResponse("instructor Added Success", user));
   } catch (err) {

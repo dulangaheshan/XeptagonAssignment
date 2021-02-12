@@ -2,7 +2,7 @@
  * @author [D5haN]
  * @email [dulangah2@gmail.com]
  * @create date 2021-02-11 04:21:25
- * @modify date 2021-02-12 01:48:45
+ * @modify date 2021-02-12 13:55:40
  * @desc [class controllers]
  */
 
@@ -23,8 +23,8 @@ export const ClassCreateController = async (req, res) => {
     const {students, classname, modules} = req.body;
     const addedstudents = []
     const studentRes = []
-    
-    for await (const user of students.map(student => addUser(student.username, GenrateRandomPassword(student.username), student.role))) {
+    const randomPassword = GenrateRandomPassword(classname)
+    for await (const user of students.map(student => addUser(student.username, randomPassword, student.role))) {
         addedstudents.push(user.user)
         studentRes.push({
           "username": user.user.username, 

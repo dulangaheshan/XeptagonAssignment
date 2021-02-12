@@ -2,7 +2,7 @@
  * @author [D5haN]
  * @email [dulangah2@gmail.com]
  * @create date 2021-02-11 23:26:33
- * @modify date 2021-02-12 02:09:49
+ * @modify date 2021-02-12 11:15:12
  * @desc [Module helper]
  */
 import moduleEnum from "../../enums/module.enum.js";
@@ -30,7 +30,7 @@ export const getStudentSelectedModules = async (user) => {
 
          return response
 
-    }catch(e){
+    }catch(err){
       throw err;
     }
 
@@ -74,7 +74,7 @@ export const executeStudentModules = async (user) => {
 
          return response
 
-    }catch(e){
+    }catch(err){
       throw err;
     }
 
@@ -106,3 +106,27 @@ export const executeStudentModules = async (user) => {
    return classDeatils;
   }
    
+
+  
+
+
+    /**
+ * Execute Student Modules
+ * @param user Student
+ */
+
+export const executeAllModules = async () => {
+  console.log(`execute All modules by`);
+    try{
+         let response =  {}
+         for (let id in moduleEnum) {
+             response[id] = `Hello Module ${moduleEnum[id]}` 
+      }
+         return response
+
+    }catch(err){
+      throw err;
+    }
+
+    
+  };

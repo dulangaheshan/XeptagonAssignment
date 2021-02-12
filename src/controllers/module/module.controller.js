@@ -1,5 +1,5 @@
 import { Exception, GetErrorCode, PayloadResponse } from "../../services/response.service.js";
-import { getModules, getStudentSelectedModules, executeStudentModules } from "./module.helper.js";
+import { getModules, getStudentSelectedModules, executeStudentModules,executeAllModules } from "./module.helper.js";
 
 
 
@@ -55,13 +55,27 @@ export const ExecuteModule = async (req, res) => {
   
     const {user} = req
     console.log(user)
-    const response = await executeStudentModules(user);
+
+    if(user.role === "student"){
+      const response = await executeStudentModules(user);
 
       res.status(200).json(
-        PayloadResponse("Modules", {
+        PayloadResponse("Execute Modules By class", {
             response
         })
       );
+    }
+    else{
+      const response = await executeAllModules(user);
+
+      res.status(200).json(
+        PayloadResponse("Execute Modules", {
+            response
+        })
+      );
+    }
+
+
     
 
 

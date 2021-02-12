@@ -2,20 +2,16 @@
  * @author [D5haN]
  * @email [dulangah2@gmail.com]
  * @create date 2021-02-12 01:32:40
- * @modify date 2021-02-12 01:32:50
+ * @modify date 2021-02-12 13:58:58
  * @desc [random password generator]
  */
 /**
  * Generate Random Password
- * @param userName User Name
+ * @param identity identity
  * @param role User Role
  */
-export const GenrateRandomPassword = (userName, role) => {
-  if(role === "student"){
-    return "xyz"
-  }
-  if(role === "instructor"){
-    return "xyz"
-  }
+export const GenrateRandomPassword = (identity) => {
+
+   return (identity + Math.random().toString(36).slice(-8)).toString().replace(/ /g,'');
     
   };
